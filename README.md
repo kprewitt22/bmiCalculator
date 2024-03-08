@@ -18,9 +18,13 @@ This operation will install dependencies for the program via Node Package Manage
 ## Execution
 Run the following command to run the BMI calculator program
 
-```node ./bmiCal.js```
+```
+node ./bmiCal.js
+```
 
 ## Test
 Testing of the application is run via Jest and can be completed by running the following command: 
 
-```npx jest```
+```
+npx jest
+```
