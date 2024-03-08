@@ -11,18 +11,19 @@ npm -v
 ```
 
 Then open your preferred CLI and enter the following commands:
-
+Clone the repository:
 ```
 git clone https://github.com/kprewitt22/bmiCalculator.git
 ```
+Change directory to the BMI Calculator
 ```
 cd bmiCalculator
 ```
+Install dependencies for the program via Node Package Manager
 ```
 npm install
 ```
 
-This operation will install dependencies for the program via Node Package Manager
 ## Execution
 Run the following command to run the BMI calculator program
 
