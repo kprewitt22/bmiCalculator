@@ -1,4 +1,4 @@
-# bmiCalculator
+# Body Mass Index Calculator
 A BMI calculator CLI App utilizing tests via Jest. 
 ## Setup
 First install or verify that the latest version of [node](https://nodejs.org/en) or Version (20.11.1) is installed on the system.
@@ -23,7 +23,7 @@ node ./bmiCal.js
 ```
 
 ## Test
-Testing of the application is run via Jest and can be completed by running the following command: 
+Testing of the application is achieved via Jest and can be completed by running the following command: 
 
 ```
 npx jest
