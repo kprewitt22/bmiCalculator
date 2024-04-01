@@ -18,6 +18,6 @@ env:
   global:
   - COVERALLS_PARALLEL=true
 script:
-  - npx jest
+  - jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 after_success:
   - npm run coveralls
