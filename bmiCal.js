@@ -12,14 +12,9 @@ function getUserInput(question){
       // Close the readline interface after collecting input
       read.close();
       resolve(input);
-    });
+    })
   
-    // Handle errors if any
-    read.on('error', (err) => {
-      read.close();
-      reject(err);
-    });
-  });
+  })
 }
 function heightInInches(heightFeet, heightInches){
     const tallest = 107;
