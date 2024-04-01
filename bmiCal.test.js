@@ -1,5 +1,12 @@
 const { calculateBMI, getCategory, heightInInches, poundsToKg } = require('./bmiCal');
 
+// Mocking readline interface for testing
+jest.mock('node:readline', () => ({
+  createInterface: jest.fn(() => ({
+    question: jest.fn(),
+    close: jest.fn()
+  }))
+}));
 describe('BMI Calculator', () => {
 
     describe('heightInInches', () => {

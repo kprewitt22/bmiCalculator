@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-
+module.exports = {calculateBMI, getCategory, heightInInches, poundsToKg};
 const read = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -45,7 +45,7 @@ function getCategory(bmi) {
     return "Obese";
   }
 }
-module.exports = {calculateBMI, getCategory, heightInInches, poundsToKg};
+
 
 read.question('Enter your weight in pounds: ', (weight) => {
   read.question('Enter your height in feet: ', (heightFeet) => {
