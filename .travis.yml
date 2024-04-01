@@ -23,4 +23,6 @@ script:
   - cat ./coverage/lcov.info | coveralls
 
 after_success:
+  - npm run coverage
+  - npm run coveralls
   - rm -rf ./coverage
