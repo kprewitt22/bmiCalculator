@@ -202,8 +202,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "test": "jest --detectOpenHandles",
+    "coveralls": "jest --coverage"
   },
   "keywords": [],
   "author": "",
