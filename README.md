@@ -46,3 +46,6 @@ Paste the url below in the browser of your choice
 ```
 http://localhost:3000/
 ```
+## Coverage 
+
+[![Coverage Status](https://coveralls.io/repos/github/kprewitt22/bmiCalculator/badge.svg?branch=main)](https://coveralls.io/github/kprewitt22/bmiCalculator?branch=main)
