@@ -49,3 +49,6 @@ http://localhost:3000/
 ## Coverage 
 
 [![Coverage Status](https://coveralls.io/repos/github/kprewitt22/bmiCalculator/badge.svg?branch=main)](https://coveralls.io/github/kprewitt22/bmiCalculator?branch=main)
+
+## Build 
+[![Build Status](https://app.travis-ci.com/kprewitt22/bmiCalculator.svg?token=No9vzRVEEpeky3RLKxzE&branch=main)](https://app.travis-ci.com/kprewitt22/bmiCalculator)
