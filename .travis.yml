@@ -19,7 +19,8 @@ env:
   - COVERALLS_PARALLEL=true
   - COVERALLS_SERVICE_NAME="travis-ci"
 script:
-  - jest --coverage && coveralls < coverage/lcov.info
-  - rm -rf ./coverage
+  - jest --coverage
+  - cat ./coverage/lcov.info | coveralls
+
 after_success:
-  - npm run coveralls
+  - rm -rf ./coverage
