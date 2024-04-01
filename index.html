@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <title>BMI Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #dfcab2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 75%;
+      padding: 25px 20px;
+      margin: 8px 10px;
+      display: inline-block;
+      border: .25px solid black;
+      box-shadow: 8px 3px 3px black;
+      outline: none;
+      font-size: 1.5vmax;
+      position: relative;
+    }
+    input[type="submit"] {
+      width: 40%;
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      position: center;
+      background-color: #0056b3;
+      width:75%;
+      height: 75%;
+      text-align: center;
+      padding: 25px 20px;
+      margin: 8px 10px;
+      display: inline-block;
+      border: .25px solid black;
+      box-shadow: 8px 3px 3px black;
+      outline: none;
+      font-size: 1.5vmax;
+    }
+    .container{
+      background-color: #0056b3;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    .form-container{
+      position: center;
+      background-color: red;
+      width:75%;
+      height: 60%;
+      text-align: center;
+      padding: 25px 20px;
+      margin: 8px 10px;
+      display: block;
+      border: .25px solid black;
+      box-shadow: 8px 3px 3px black;
+      outline: none;
+      font-size: 1.5vmax;
+    }
+
+      /* // <uniquifier>: Use a unique and descriptive class name >
+    // <weight>: Use a value from 400 to 700 */
+    .lora-label {
+      font-family: "Lora", serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+    }
+/* CSS */
+    .button {
+      background-color: #FFFFFF;
+      border: 1px solid #222222;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #222222;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      margin: 8px 10px;
+      outline: none;
+      padding: 13px 23px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+      user-select: none;
+      -webkit-user-select: none;
+      width: auto;
+    }
+
+    .button:focus-visible {
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      transition: box-shadow .2s;
+    }
+
+    .button:active {
+      background-color: #F7F7F7;
+      border-color: #000000;
+      transform: scale(.96);
+    }
+
+    .button:disabled {
+      border-color: #DDDDDD;
+      color: #DDDDDD;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+    .result-container{
+      position: center;
+      background-color: red;
+      width:75%;
+      height: 40%;
+      text-align: center;
+      padding: 25px 20px;
+      margin: 8px 10px;
+      display: inline-block;
+      border: .25px solid black;
+      box-shadow: 8px 3px 3px black;
+      outline: none;
+      font-size: 1.5vmax;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="form-container">
+        <div id="bmiForm">
+          <label for="weight" class="lora-label">Enter your weight in pounds:</label><br>
+          <input type="text" id="weight" name="weight" class="lora-label"><br>
+          <label for="heightFeet" class="lora-label">Enter your height in feet:</label><br>
+          <input type="text" id="heightFeet" name="heightFeet" class="lora-label"><br>
+          <label for="heightInches" class="lora-label">Enter your height in inches:</label><br>
+          <input type="text" id="heightInches" name="heightInches" class="lora-label"><br><br>
+          <button class="button" onclick="calculateBMI()">Submit</button>
+        </div>
+      </div>
+      <div class="result-container">
+        <div id="resultMessage" class="result lora-label" ><!-- Result message will be displayed here --></div>
+      </div>
+    </div>
+  <script>
+     function calculateBMI() {
+      const weight = document.getElementById('weight').value;
+      const heightFeet = document.getElementById('heightFeet').value;
+      const heightInches = document.getElementById('heightInches').value;
+
+      // AJAX request to server
+      fetch('/bmi', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ weight, heightFeet, heightInches })
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('resultMessage').innerText = data;
+        console.log(data);
+      });
+    }
+  </script>
+</body>
+</html>
