@@ -20,8 +20,7 @@ env:
   - COVERALLS_SERVICE_NAME="travis-ci"
   - COVERALLS_REPO_TOKEN=IPiiudPQtOp9ZBFVduIaHP6yYuymt6jVx
 script:
-  - jest --coverage
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - jest --coverage && coveralls < coverage/lcov.info
   - rm -rf ./coverage
 after_success:
   - npm run coveralls
