@@ -202,7 +202,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "coveralls": "jest --coverage"
   },
   "keywords": [],

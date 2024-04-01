@@ -1,9 +1,26 @@
 const readline = require('node:readline');
 module.exports = {calculateBMI, getCategory, heightInInches, poundsToKg};
-const read = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+
+function getUserInput(question){
+
+  const read = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+  return new Promise((resolve, reject) => {
+    read.question(question, (input) => {
+      // Close the readline interface after collecting input
+      read.close();
+      resolve(input);
+    });
+  
+    // Handle errors if any
+    read.on('error', (err) => {
+      read.close();
+      reject(err);
+    });
+  });
+}
 function heightInInches(heightFeet, heightInches){
     const tallest = 107;
     let totalHeightInInches = heightFeet * 12 + heightInches;
@@ -47,21 +64,25 @@ function getCategory(bmi) {
 }
 
 
-read.question('Enter your weight in pounds: ', (weight) => {
-  read.question('Enter your height in feet: ', (heightFeet) => {
-    read.question('Enter your height in inches: ', (heightInches) => {
-        const weightInKg = poundsToKg(parseFloat(weight));
-        const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
-        const bmi = calculateBMI(weightInKg, totalHeightInInches);
-        const category = getCategory(bmi);
-        if(bmi > 100 || bmi <= 0)
-        {
-            console.log("Your BMI is impossible please re-enter your data and enter a reasonable input");
-        }
-        else{
-            console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
-        }
-        read.close();
-    })
-  })
-})
+
+async function collectUserData() {
+try {
+  const weight = await getUserInput('Enter your weight in pounds: ');
+  const heightFeet = await getUserInput('Enter your height in feet: ');
+  const heightInches = await getUserInput('Enter your height in inches: ');
+
+  // Perform calculations
+  const weightInKg = poundsToKg(parseFloat(weight));
+  const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
+  const bmi = calculateBMI(weightInKg, totalHeightInInches);
+  const category = getCategory(bmi);
+
+  // Display result
+  console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
+} catch (error) {
+  console.error('An error occurred:', error);
+}
+}
+
+// Call the function to collect user data
+collectUserData();
