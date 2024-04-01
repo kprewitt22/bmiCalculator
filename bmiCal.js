@@ -66,7 +66,7 @@ function getCategory(bmi) {
 
 
 async function collectUserData() {
-try {
+
   const weight = await getUserInput('Enter your weight in pounds: ');
   const heightFeet = await getUserInput('Enter your height in feet: ');
   const heightInches = await getUserInput('Enter your height in inches: ');
@@ -76,12 +76,14 @@ try {
   const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
   const bmi = calculateBMI(weightInKg, totalHeightInInches);
   const category = getCategory(bmi);
-
+  if(bmi > 100 || bmi <= 0)
+  {
   // Display result
-  console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
-} catch (error) {
-  console.error('An error occurred:', error);
-}
+    console.log("Your BMI is impossible please re-enter your data and enter a reasonable input");
+  }
+  else{
+    console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
+  }
 }
 
 // Call the function to collect user data
