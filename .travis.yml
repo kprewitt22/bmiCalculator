@@ -9,9 +9,13 @@ cache:
   directories:
     - node_modules
 before_install:
-  - npm config set progress=true && npm i -g npm@latest --no-audit
+  - npm update
 install:
   - npm ci --no-audit
+
+env:
+  global:
+  - COVERALLS_PARALLEL=true
 script:
   - npx jest
 after_success:
