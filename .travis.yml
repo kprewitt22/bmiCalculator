@@ -17,7 +17,11 @@ install:
 env:
   global:
   - COVERALLS_PARALLEL=true
+  - COVERALLS_SERVICE_NAME="travis-ci"
+  - COVERALLS_REPO_TOKEN=IPiiudPQtOp9ZBFVduIaHP6yYuymt6jVx
 script:
-  - jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+  - jest --coverage
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - rm -rf ./coverage
 after_success:
   - npm run coveralls
