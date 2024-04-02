@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="with-custom-commands.angularTodo"
+    errors="1" failures="0" hostname="" id="" package="with-custom-commands" skipped="1"
+    tests="0" time="0.001000" timestamp="">
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [Error] Unable to obtain browser driver.
+        For more information on how to install drivers see
+        https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/. Error: Error executing command for C:\Users\GLADOS\Documents\bmiCalculator\node_modules\selenium-webdriver\bin\windows\selenium-manager.exe with --browser,chrome,--output,json: The process cannot access the file because it is being used by another process. (os error 32)
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;&#39;,
+     port: undefined,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+ An error occurred while creating a new ChromeDriver session: [Error] Unable to obtain browser driver.
+        For more information on how to install drivers see
+        https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/. Error: Error executing command for C:\Users\GLADOS\Documents\bmiCalculator\node_modules\selenium-webdriver\bin\windows\selenium-manager.exe with --browser,chrome,--output,json: The process cannot access the file because it is being used by another process. (os error 32)
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;&#39;,
+     port: undefined,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+ NoSuchElementError
+   An element could not be located on the page using the given search parameters.
+
+    Try fixing by :
+    1. Please inspect the html before the step
+    2. Verify if an element with the mentioned selector is present in the DOM tree
+    </system-err>
+  
+
+    
+    <error message=""><![CDATA[
+      
+      ]]></error>  
+
+  
+    
+    <testcase
+      name="should add a todo using custom commands" classname="with-custom-commands.angularTodo">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

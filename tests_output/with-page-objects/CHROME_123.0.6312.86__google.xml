@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="1"
+            tests="1">
+
+  <testsuite name="with-page-objects.google"
+    errors="1" failures="1" hostname="" id="" package="with-page-objects" skipped="0"
+    tests="1" time="19.32" timestamp="">
+  
+    <testcase name="should find nightwatch.js in results" classname="with-page-objects.google" time="8.654" assertions="4">
+
+    
+
+    
+
+      <failure message="Expected element @menu &lt;#hdtb-msb&gt; to be visible - element was not found - expected &#34;visible&#34; but got: &#34;not found&#34; (5182ms)">    at DescribeInstance.&lt;anonymous&gt; (C:\Users\GLADOS\Documents\bmiCalculator\nightwatch\examples\with-page-objects\google.js:27:24)</failure>
+
+    
+    <error type="error"><![CDATA[
+    NoSuchElementError: Unable to locate element: #hdtb-msb using css selector
+    at throwDecodedError (C:\Users\GLADOS\Documents\bmiCalculator\node_modules\selenium-webdriver\lib\error.js:524:15)
+    at ChromeDriver.handleErrorResponse (C:\Users\GLADOS\Documents\bmiCalculator\node_modules\nightwatch\lib\transport\selenium-webdriver\index.js:400:7)
+    at TransportActions.makeResult (C:\Users\GLADOS\Documents\bmiCalculator\node_modules\nightwatch\lib\transport\selenium-webdriver\actions.js:85:20)
+    at Object.locateMultipleElements (C:\Users\GLADOS\Documents\bmiCalculator\node_modules\nightwatch\lib\transport\selenium-webdriver\actions.js:71:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async LocateElement.findElement (C:\Users\GLADOS\Documents\bmiCalculator\node_modules\nightwatch\lib\element\locator.js:167:20)
+    ]]></error>
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [Error] Unable to obtain browser driver.
+        For more information on how to install drivers see
+        https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/. Error: Error executing command for C:\Users\GLADOS\Documents\bmiCalculator\node_modules\selenium-webdriver\bin\windows\selenium-manager.exe with --browser,chrome,--output,json: The process cannot access the file because it is being used by another process. (os error 32)
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;&#39;,
+     port: undefined,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+ An error occurred while creating a new ChromeDriver session: [Error] Unable to obtain browser driver.
+        For more information on how to install drivers see
+        https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location/. Error: Error executing command for C:\Users\GLADOS\Documents\bmiCalculator\node_modules\selenium-webdriver\bin\windows\selenium-manager.exe with --browser,chrome,--output,json: The process cannot access the file because it is being used by another process. (os error 32)
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;&#39;,
+     port: undefined,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+ NoSuchElementError
+   An element could not be located on the page using the given search parameters.
+
+    Try fixing by :
+    1. Please inspect the html before the step
+    2. Verify if an element with the mentioned selector is present in the DOM tree
+    </system-err>
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
