@@ -13,6 +13,7 @@ function getUserInput(question){
       read.close();
       resolve(input);
     })
+    console.log(reject);
   
   })
 }
