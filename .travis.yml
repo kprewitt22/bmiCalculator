@@ -10,7 +10,7 @@ cache:
   directories:
     - node_modules
 
-
+#Issue confirming completion at Coveralls.io
 script:
   - npm run lint
   - npm run test
