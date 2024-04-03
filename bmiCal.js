@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-module.exports = {getUserInput, collectUserData, calculateBMI, getCategory, heightInInches, poundsToKg};
+module.exports = {getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg};
 
 function getUserInput(question){
 
@@ -72,7 +72,7 @@ async function collectUserData() {
   const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
   const bmi = calculateBMI(weightInKg, totalHeightInInches);
   const category = getCategory(bmi);
-  if(bmi > 100 || bmi <= 0)
+  if(isNaN(bmi) || bmi > 100 || bmi <= 0)
   {
   // Display result
     console.log("Your BMI is impossible please re-enter your data and enter a reasonable input");
