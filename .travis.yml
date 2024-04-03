@@ -10,6 +10,9 @@ cache:
   directories:
     - node_modules
 
+env:
+  global:
+  - COVERALLS_PARALLEL=true
 #Issue confirming completion at Coveralls.io
 script:
   - npm run lint
@@ -17,3 +20,5 @@ script:
   - npm run test:coverage
   - npm run upload-coverage
 
+notifications:
+  webhooks: https://coveralls.io/webhook
