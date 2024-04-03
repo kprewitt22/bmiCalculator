@@ -205,7 +205,7 @@
     "start": "node index.js",
     "lint": "eslint .",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage && coveralls < ./coverage/lcov.info",
     "upload-coverage": "coveralls < ./coverage/lcov.info"
   },
   "keywords": [],
