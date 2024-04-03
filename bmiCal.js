@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-module.exports = {calculateBMI, getCategory, heightInInches, poundsToKg};
+module.exports = {getUserInput, collectUserData, calculateBMI, getCategory, heightInInches, poundsToKg};
 
 function getUserInput(question){
 
