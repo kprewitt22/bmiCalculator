@@ -12,7 +12,6 @@ cache:
 
 env:
   global:
-  - COVERALLS_PARALLEL=true
   - COVERALLS_SERVICE_NAME="travis-ci"
   - COVERALLS_REPO_TOKEN
 script:
