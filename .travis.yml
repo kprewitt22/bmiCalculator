@@ -12,13 +12,20 @@ cache:
 
 env:
   global:
-  - COVERALLS_SERVICE_NAME="travis-ci"
-  - COVERALLS_PARALLEL=true
+    - COVERALLS_SERVICE_NAME="travis-ci"
+    - COVERALLS_PARALLEL=true
+
+install:
+  - npm install
+
 script:
   - npm run lint
   - npm run test
   - npm run test:coverage
+
+after_success:
   - npm run upload-coverage
 
 notifications:
-webhooks: https://coveralls.io/webhook
+  webhooks: https://coveralls.io/webhook
+
