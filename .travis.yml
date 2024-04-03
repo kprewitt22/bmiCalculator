@@ -22,6 +22,7 @@ env:
 script:
   - npm run lint
   - npm run test
+  - npm run coveralls
   - npm run test:coveralls
   - npm run test:coverage
 

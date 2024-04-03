@@ -207,7 +207,7 @@
     "lint": "eslint .",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "",
