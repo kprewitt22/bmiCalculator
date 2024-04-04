@@ -20,6 +20,4 @@ jobs:
     script:
       - npm run test:coverage
       - npm run upload-coverage
-    -stage: staging
-    script:
-      - npm run deploy:staging
+
