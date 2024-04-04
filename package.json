@@ -205,8 +205,10 @@
     "start": "node index.js",
     "lint": "eslint .",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "upload-coverage": "coveralls < ./coverage/lcov.info"
+    "test:coverage": "jest --coverage && coveralls < ./coverage/lcov.info",
+    "upload-coverage": "coveralls < ./coverage/lcov.info",
+    "deploy:staging": "git push heroku-staging main",
+    "deploy:production": "git push heroku-production main"
   },
   "keywords": [],
   "author": "",

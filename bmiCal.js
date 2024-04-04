@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-module.exports = {getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg};
+module.exports = {collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg};
 
 function getUserInput(question){
 
@@ -80,6 +80,7 @@ async function collectUserData() {
   else{
     console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
   }
+  return { bmi, category };
 }
 
 // Call the function to collect user data

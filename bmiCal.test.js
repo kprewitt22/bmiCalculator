@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-const { getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg } = require('./bmiCal');
+const { collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg } = require('./bmiCal');
 
 // Mocking readline interface for testing
 jest.mock('node:readline', () => ({
@@ -122,7 +122,5 @@ describe('BMI Calculator', () => {
         await getUserInput(question);
         expect(mockConsoleLog).toHaveBeenCalledWith(expect.any(Function));
         });
-    })
-
-  
+    }) 
   })
