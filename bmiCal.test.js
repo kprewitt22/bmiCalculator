@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-const { collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg } = require('./bmiCal');
+const { getResult, collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg } = require('./bmiCal');
 
 // Mocking readline interface for testing
 jest.mock('node:readline', () => ({
@@ -123,4 +123,59 @@ describe('BMI Calculator', () => {
         expect(mockConsoleLog).toHaveBeenCalledWith(expect.any(Function));
         });
     }) 
+    describe('Results test', () => {
+      test('Returns error if NaN, bmi > 100, bmi <= 0', () => {
+        const impossibleMsg = "Your BMI is impossible please re-enter your data and enter a reasonable input";
+        expect(getResult('c', 'Obese')).toBe(impossibleMsg);
+
+      })
+
+      test('Returns error if bmi > 100', () => {
+        const impossibleMsg = "Your BMI is impossible please re-enter your data and enter a reasonable input";
+        expect(getResult(1000, 'Obese')).toBe(impossibleMsg); 
+      })
+      test('Returns results if bmi >= 0', () => {
+        const impossibleMsg = "Your BMI is impossible please re-enter your data and enter a reasonable input";
+        expect(getResult(0, 'Underweight')).toBe(impossibleMsg);
+      })
+
+      test('Returns results message for Underweight BMI (lower boundary)', () => {
+        const bmi = 15.9;
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        expect(getResult(bmi, category)).toBe(successMsg);
+      })
+    
+      test('Returns results message for Normal weight BMI (upper boundary)', () => {
+        const bmi = 24.9;
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        expect(getResult(bmi, category)).toBe(successMsg);
+      })
+    
+      test('Returns results message for Overweight BMI (lower boundary)', () => {
+        const bmi = 25;
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        expect(getResult(bmi, category)).toBe(successMsg);
+      })
+    
+      test('Returns results message for Overweight BMI (upper boundary)', () => {
+        const bmi = 29.9;
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        expect(getResult(bmi, category)).toBe(successMsg);
+      })
+    
+      test('Returns results message for Obese BMI (lower boundary)', () => {
+        const bmi = 30;
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        expect(getResult(bmi, category)).toBe(successMsg);
+      })
+    })
+
+    /*describe('Collect user data',() => {
+      test()
+    })*/
   })

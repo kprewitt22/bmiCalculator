@@ -1,5 +1,5 @@
 const readline = require('node:readline');
-module.exports = {collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg};
+module.exports = {getResult, collectUserData, getUserInput, calculateBMI, getCategory, heightInInches, poundsToKg};
 
 function getUserInput(question){
 
@@ -59,7 +59,20 @@ function getCategory(bmi) {
   }
 }
 
-
+function getResult(bmi, category){
+  if(isNaN(bmi) || bmi > 100 || bmi <= 0)
+  {
+  // Display result
+    const impossibleMsg = "Your BMI is impossible please re-enter your data and enter a reasonable input";
+    console.log(impossibleMsg);
+    return impossibleMsg;
+  }
+  else{
+    const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+    console.log(successMsg);
+    return successMsg;
+  }
+}
 
 async function collectUserData() {
 
@@ -72,15 +85,7 @@ async function collectUserData() {
   const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
   const bmi = calculateBMI(weightInKg, totalHeightInInches);
   const category = getCategory(bmi);
-  if(isNaN(bmi) || bmi > 100 || bmi <= 0)
-  {
-  // Display result
-    console.log("Your BMI is impossible please re-enter your data and enter a reasonable input");
-  }
-  else{
-    console.log(`Your BMI is ${bmi}, which falls into the category of ${category}.`);
-  }
-  return { bmi, category };
+  getResult(bmi, category);
 }
 
 // Call the function to collect user data
