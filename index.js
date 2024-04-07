@@ -19,7 +19,7 @@ app.post('/bmi', (req, res) => {
   const bmi = calculateBMI(weightInKg, totalHeightInInches);
   const category = getCategory(bmi);
 // Send BMI result as JSON response
-    if (bmi > 100 || bmi <= 0) {
+    if (isNaN(bmi) ||bmi > 100 || bmi <= 0) {
         res.send(`Your BMI is impossible please re-enter your data and enter a reasonable input`);
     } else {
         res.send(`Your BMI is ${bmi}, which falls into the category of ${category}.`); // Round BMI to one decimal place
