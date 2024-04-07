@@ -14,12 +14,12 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      justify-content: column;
       align-items: center;
-      height: 100vh;
+      height: auto;
     }
     form {
-      background-color: #fff;
+      background-color: #c5cfb1;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -39,23 +39,24 @@
       outline: none;
       font-size: 1.5vmax;
       position: relative;
+      background-color: #c5cfb1;
     }
     input[type="submit"] {
       width: 40%;
       padding: 10px;
       border: none;
-      background-color: #007bff;
-      color: #fff;
+      background-color: #c5cfb1;
+      color: #c5cfb1;
       border-radius: 4px;
       cursor: pointer;
       position: relative;
     }
     input[type="submit"]:hover {
-      background-color: #0056b3;
+      background-color: #c5cfb1;
     }
     .result {
       position: center;
-      background-color: #0056b3;
+      background-color: #c5cfb1;
       width:75%;
       height: 75%;
       text-align: center;
@@ -68,16 +69,16 @@
       font-size: 1.5vmax;
     }
     .container{
-      background-color: #0056b3;
+      background-color: #c5cfb1;
       display: inline-block;
       width: 100%;
-      height: 100%;
+      height: auto;
     }
     .form-container{
       position: center;
-      background-color: red;
+      background-color: rgb(59, 73, 117);
       width:75%;
-      height: 60%;
+      height: auto;
       text-align: center;
       padding: 25px 20px;
       margin: 8px 10px;
@@ -98,7 +99,7 @@
     }
 /* CSS */
     .button {
-      background-color: #FFFFFF;
+      background-color: #989bb6;
       border: 1px solid #222222;
       border-radius: 8px;
       box-sizing: border-box;
@@ -141,23 +142,38 @@
     }
     .result-container{
       position: center;
-      background-color: red;
-      width:75%;
-      height: 40%;
+      background-color: rgb(75, 70, 70);
+      width:100%;
+      height: auto;
       text-align: center;
-      padding: 25px 20px;
-      margin: 8px 10px;
+      padding: 50px 20px;
+      margin: 10px -20px;
       display: inline-block;
       border: .25px solid black;
       box-shadow: 8px 3px 3px black;
       outline: none;
       font-size: 1.5vmax;
     }
+    .title-container {
+      text-align: center;
+      position: relative;
+      margin-bottom: 10; /* Adjust margin as needed */
+    }
+
+    .title {
+      font-family: "Lora", serif;
+      font-size: 5.5rem; /* Adjust font size as needed */
+      color: #030303; /* Adjust color as needed */
+      margin: 10px 20px;
+    }
   </style>
 </head>
 <body>
-    <div class="container">
+      
       <div class="form-container">
+        <div class="title-container">
+          <h1 class="title">BMI Calculator</h1>
+        </div>
         <div id="bmiForm">
           <label for="weight" class="lora-label">Enter your weight in pounds:</label><br>
           <input type="text" id="weight" name="weight" class="lora-label"><br>
@@ -166,11 +182,11 @@
           <label for="heightInches" class="lora-label">Enter your height in inches:</label><br>
           <input type="text" id="heightInches" name="heightInches" class="lora-label"><br><br>
           <button class="button" onclick="calculateBMI()">Submit</button>
+          <div class="result-container">
+            <div id="resultMessage" class="result lora-label" ><!-- Result message will be displayed here --></div>
+          </div>
         </div>
-      </div>
-      <div class="result-container">
-        <div id="resultMessage" class="result lora-label" ><!-- Result message will be displayed here --></div>
-      </div>
+
     </div>
   <script>
      function calculateBMI() {
