@@ -7,13 +7,13 @@ function getUserInput(question){
     input: process.stdin,
     output: process.stdout
   })
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     read.question(question, (input) => {
       // Close the readline interface after collecting input
       read.close();
       resolve(input);
     })
-    console.log(reject);
+
   
   })
 }

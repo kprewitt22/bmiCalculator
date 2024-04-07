@@ -108,20 +108,6 @@ describe('BMI Calculator', () => {
         const input = await getUserInput(question);
         expect(input).toBe(userInput);
       });
-    
-      test('rejects with an error', async () => {
-        const question = 'Enter your weight in pounds: ';
-        const errorMsg = 'Error occurred';
-        const mockReadlineInterface = {
-          question: jest.fn((q, cb) => cb(new Error(errorMsg))),
-          close: jest.fn()
-        };
-        jest.spyOn(readline, 'createInterface').mockReturnValue(mockReadlineInterface);
-        
-        const mockConsoleLog = jest.spyOn(console, 'log');
-        await getUserInput(question);
-        expect(mockConsoleLog).toHaveBeenCalledWith(expect.any(Function));
-        });
     }) 
     describe('Results test', () => {
       test('Returns error if NaN, bmi > 100, bmi <= 0', () => {
@@ -174,8 +160,33 @@ describe('BMI Calculator', () => {
         expect(getResult(bmi, category)).toBe(successMsg);
       })
     })
-
-    /*describe('Collect user data',() => {
-      test()
-    })*/
+    describe('collectUserData function', () => {
+      it('should collect user data and perform calculations', async () => {
+        const weight = await getUserInput('Enter your weight in pounds: ');
+        const heightFeet = await getUserInput('Enter your height in feet: ');
+        const heightInches = await getUserInput('Enter your height in inches: ');
+        const weightInKg = poundsToKg(parseFloat(weight));
+        const totalHeightInInches = heightInInches(parseInt(heightFeet), parseInt(heightInches));
+        const bmi = calculateBMI(weightInKg, totalHeightInInches);
+        const category = getCategory(bmi);
+        const successMsg = `Your BMI is ${bmi}, which falls into the category of ${category}.`;
+        // Mocking console.log to capture output
+        const originalLog = console.log;
+        console.log = jest.fn();
+    
+        await collectUserData();
+    
+        // Expectations for user inputs and outputs
+        if(isNaN(bmi) || bmi > 100 || bmi <= 0)
+        {
+          expect(console.log).toHaveBeenCalledWith("Your BMI is impossible please re-enter your data and enter a reasonable input");
+        }
+        else{
+          expect(console.log).toHaveBeenCalledWith(successMsg);
+        }
+       
+        // Restore original console.log
+        console.log = originalLog;
+      })
+    })
   })
